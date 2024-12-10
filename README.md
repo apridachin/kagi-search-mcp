@@ -6,27 +6,23 @@ MCP server that allows to search web using Kagi API
 
 ### Resources
 
-The server implements a simple note storage system with:
-- Custom note:// URI scheme for accessing individual notes
-- Each note resource has a name, description and text/plain mimetype
+The server implements calls of [API methods](https://help.kagi.com/kagi/api/overview.html):
+- fastgpt
+- enrich/web
+- enrich/news
 
 ### Prompts
 
-The server provides a single prompt:
-- summarize-notes: Creates summaries of all stored notes
-  - Optional "style" argument to control detail level (brief/detailed)
-  - Generates prompt combining all current notes with style preference
+The server provides doesn't provide any prompts:
 
 ### Tools
 
-The server implements one tool:
-- add-note: Adds a new note to the server
-  - Takes "name" and "content" as required string arguments
-  - Updates server state and notifies clients of resource changes
+The server implements several tools:
+- ask_fastgpt to search web and find an answer
+- enrich_web to enrich model context with web content
+- enrich_news to enrich model context with latest news
 
 ## Configuration
-
-[TODO: Add configuration details specific to your implementation]
 
 ## Quickstart
 
@@ -35,7 +31,6 @@ The server implements one tool:
 #### Claude Desktop
 
 On MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
-On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 
 <details>
   <summary>Development/Unpublished Servers Configuration</summary>
@@ -45,24 +40,13 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
       "command": "uv",
       "args": [
         "--directory",
-        "/Users/a.pridachin/Playground/web-search-mcp-server",
+        "path_to_project",
         "run",
         "web-search-mcp"
-      ]
-    }
-  }
-  ```
-</details>
-
-<details>
-  <summary>Published Servers Configuration</summary>
-  ```
-  "mcpServers": {
-    "web-search-mcp": {
-      "command": "uvx",
-      "args": [
-        "web-search-mcp"
-      ]
+      ],
+      "env": {
+        "KAGI_API_KEY": "YOUR API KEY"
+      }
     }
   }
   ```
@@ -97,15 +81,6 @@ Note: You'll need to set PyPI credentials via environment variables or command f
 
 ### Debugging
 
-Since MCP servers run over stdio, debugging can be challenging. For the best debugging
-experience, we strongly recommend using the [MCP Inspector](https://github.com/modelcontextprotocol/inspector).
-
-
-You can launch the MCP Inspector via [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) with this command:
-
 ```bash
-npx @modelcontextprotocol/inspector uv --directory /Users/a.pridachin/Playground/web-search-mcp-server run web-search-mcp
+npx @modelcontextprotocol/inspector uv --directory path_to_project run web-search-mcp
 ```
-
-
-Upon launching, the Inspector will display a URL that you can access in your browser to begin debugging.
