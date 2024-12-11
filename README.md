@@ -1,4 +1,4 @@
-# web-search-mcp MCP server
+# Kagi MCP server
 
 MCP server that allows to search web using Kagi API
 
@@ -36,13 +36,13 @@ On MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
   <summary>Development/Unpublished Servers Configuration</summary>
   ```
   "mcpServers": {
-    "web-search-mcp": {
+    "kagi-mcp": {
       "command": "uv",
       "args": [
         "--directory",
         "path_to_project",
         "run",
-        "web-search-mcp"
+        "kagi-mcp"
       ],
       "env": {
         "KAGI_API_KEY": "YOUR API KEY"
@@ -82,5 +82,5 @@ Note: You'll need to set PyPI credentials via environment variables or command f
 ### Debugging
 
 ```bash
-npx @modelcontextprotocol/inspector uv --directory path_to_project run web-search-mcp
+npx @modelcontextprotocol/inspector uv --directory path_to_project run kagi-mcp
 ```

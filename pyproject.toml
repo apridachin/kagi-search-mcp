@@ -1,13 +1,15 @@
 [project]
-name = "web-search-mcp"
+name = "kagi-mcp"
 version = "0.1.0"
 description = "MCP server that allows to search web using Kagi API"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
- "mcp>=1.1.1",
- "python-dotenv>=1.0.1",
+  "httpx>=0.28.1",
+  "mcp>=1.1.1",
+  "python-dotenv>=1.0.1",
 ]
+
 [[project.authors]]
 name = "Aleksey Pridachin"
 email = "a.pridachin@semrush.com"
@@ -17,4 +19,4 @@ requires = [ "hatchling",]
 build-backend = "hatchling.build"
 
 [project.scripts]
-web-search-mcp = "web_search_mcp:main"
+kagi-mcp = "kagi_mcp:main"

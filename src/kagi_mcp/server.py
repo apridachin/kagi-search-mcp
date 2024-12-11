@@ -1,19 +1,17 @@
 import logging
-import json
 
-import httpx
 import mcp.server.stdio
 import mcp.types as types
 from mcp.server import NotificationOptions, Server
 from mcp.server.models import InitializationOptions
 
 from utils.config import Config
-from web_search_mcp.kagi import ask_fastgpt, enrich_web, enrich_news
+from kagi_mcp.kagi import ask_fastgpt, enrich_web, enrich_news
 
 config = Config()
 logging.basicConfig(level=config.LOG_LEVEL)
-logger = logging.getLogger("kagi-search-mcp")
-server = Server("kagi-search-mcp")
+logger = logging.getLogger("kagi-mcp")
+server = Server("kagi-mcp")
 
 
 @server.list_tools()
@@ -22,7 +20,7 @@ async def handle_list_tools() -> list[types.Tool]:
     return [
         types.Tool(
             name="ask_fastgpt",
-            description="Ask fastgpt to search web and give answer with references",
+            description="Ask fastgpt to search web and give an answer with references",
             inputSchema={
                 "type": "object",
                 "properties": {
@@ -33,7 +31,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="enrich_web",
-            description="Fetch enrichment results focused on general, non-commercial web content.",
+            description="Enrich context with web content focused on general, non-commercial web content.",
             inputSchema={
                 "type": "object",
                 "properties": {
@@ -44,7 +42,7 @@ async def handle_list_tools() -> list[types.Tool]:
         ),
         types.Tool(
             name="enrich_news",
-            description="Fetch enrichment results focused on non-commercial news and discussions.",
+            description="Enrich context with web content focused on non-commercial news and discussions.",
             inputSchema={
                 "type": "object",
                 "properties": {
@@ -94,7 +92,7 @@ async def main():
             read_stream,
             write_stream,
             InitializationOptions(
-                server_name="web-search-mcp",
+                server_name="kagi-mcp",
                 server_version="0.1.0",
                 capabilities=server.get_capabilities(
                     notification_options=NotificationOptions(),
