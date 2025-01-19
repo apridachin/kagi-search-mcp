@@ -2,6 +2,8 @@
 
 MCP server that allows to search web using Kagi API
 
+<a href="https://glama.ai/mcp/servers/rl6yu8g58l"><img width="380" height="200" src="https://glama.ai/mcp/servers/rl6yu8g58l/badge" alt="Kagi Server MCP server" /></a>
+
 ## Components
 
 ### Resources
