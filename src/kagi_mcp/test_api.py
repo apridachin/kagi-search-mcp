@@ -1,7 +1,7 @@
 import asyncio
 
-from utils.config import Config
-from kagi import ask_fastgpt, enrich_web, enrich_news
+from kagi_mcp.config import Config
+from kagi_mcp.kagi import ask_fastgpt, enrich_web, enrich_news
 
 config = Config()
 

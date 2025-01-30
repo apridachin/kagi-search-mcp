@@ -3,7 +3,7 @@ from urllib.parse import urljoin
 import httpx
 from mcp import McpError, types as types
 
-from utils.config import Config
+from kagi_mcp.config import Config
 
 config = Config()
 

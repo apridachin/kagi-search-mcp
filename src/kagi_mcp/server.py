@@ -5,7 +5,7 @@ import mcp.types as types
 from mcp.server import NotificationOptions, Server
 from mcp.server.models import InitializationOptions
 
-from utils.config import Config
+from kagi_mcp.config import Config
 from kagi_mcp.kagi import ask_fastgpt, enrich_web, enrich_news
 
 config = Config()
