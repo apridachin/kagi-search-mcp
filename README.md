@@ -1,5 +1,6 @@
 # Kagi MCP server
 
+[![smithery badge](https://smithery.ai/badge/kagi-mcp)](https://smithery.ai/client/kagi-mcp)
 MCP server that allows to search web using Kagi API
 
 <a href="https://glama.ai/mcp/servers/rl6yu8g58l"><img width="380" height="200" src="https://glama.ai/mcp/servers/rl6yu8g58l/badge" alt="Kagi Server MCP server" /></a>
@@ -29,6 +30,14 @@ The server implements several tools:
 ## Quickstart
 
 ### Install
+
+### Installing via Smithery
+
+To install the Kagi MCP server for Claude Desktop automatically via [Smithery](https://smithery.ai/client/kagi-mcp):
+
+```bash
+npx -y @smithery/cli install kagi-mcp --client claude
+```
 
 #### Claude Desktop
 
